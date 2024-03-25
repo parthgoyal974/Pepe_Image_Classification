@@ -1,0 +1,54 @@
+# Image Classifier Documentation
+
+## Introduction
+
+This documentation outlines the steps involved in building and training an image classifier using TensorFlow. The classifier is designed to classify images into two categories: "pepe" and "not pepe". The classifier is trained using a dataset consisting of images of both categories.
+
+## Requirements
+
+- TensorFlow
+- OpenCV (cv2)
+- Matplotlib
+- NumPy
+- imghdr
+- scikit-learn (for evaluation metrics)
+
+## Data Collection and Preprocessing
+
+1. **Data Augmentation**: The dataset is augmented using the `ImageDataGenerator` from TensorFlow's `preprocessing.image` module. Augmentation techniques include rotation, shifting, shearing, zooming, and flipping.
+
+2. **Data Validation**: Images are validated for compatibility with the dataset. Images with extensions other than JPEG, JPG, BMP, and PNG are removed. Corrupted images are removed from the dataset.
+
+3. **Data Loading**: The augmented dataset is loaded using `tf.keras.utils.image_dataset_from_directory`. This function creates a TensorFlow dataset from image files arranged in directories corresponding to class labels.
+
+4. **Data Splitting**: The dataset is split into training, validation, and test sets using TensorFlow's dataset manipulation functions.
+
+## Model Architecture
+
+The image classifier model consists of several layers:
+
+- Input Layer: Accepts images of size 256x256 pixels with 3 color channels.
+- Convolutional Layers: Three sets of convolutional layers with batch normalization and max-pooling.
+- Flatten Layer: Flattens the output from convolutional layers.
+- Dense Layers: Two dense layers with ReLU activation.
+- Output Layer: Dense layer with a sigmoid activation function for binary classification.
+
+## Model Training
+
+The model is compiled using the Adam optimizer with a specified learning rate and binary cross-entropy loss function. Training is performed for a fixed number of epochs, with validation data used to monitor model performance and prevent overfitting.
+
+## Evaluation Metrics
+
+- **Precision**: Precision is calculated as the ratio of true positives to the sum of true positives and false positives. It measures the accuracy of positive predictions.
+- **Recall**: Recall is calculated as the ratio of true positives to the sum of true positives and false negatives. It measures the ability of the model to identify positive instances.
+- **Binary Accuracy**: Binary accuracy calculates the accuracy of binary predictions.
+
+The F1 score, which is the harmonic mean of precision and recall, is also calculated as an evaluation metric.
+
+## Test Loss and Visualization
+
+The test loss and additional evaluation metrics are computed using the trained model on the test dataset. The loss curves (training loss and validation loss) are plotted to visualize the model's performance during training.
+
+## Conclusion
+
+This documentation provides an overview of the image classifier built using TensorFlow. It outlines the steps involved in data collection, preprocessing, model architecture, training, and evaluation. By following these steps, users can train and evaluate their own image classifiers for various applications.
