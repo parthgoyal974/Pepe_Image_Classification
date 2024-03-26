@@ -45,6 +45,13 @@ The model is compiled using the Adam optimizer with a specified learning rate an
 
 The F1 score, which is the harmonic mean of precision and recall, is also calculated as an evaluation metric.
 
+## Note: The model might be slightly overfit due to a small dataset. 
+
+## Performance
+
+Highest F1 Score: 96.7%
+Acuuracy: 92.2%
+
 ## Test Loss and Visualization
 
 The test loss and additional evaluation metrics are computed using the trained model on the test dataset. The loss curves (training loss and validation loss) are plotted to visualize the model's performance during training.
